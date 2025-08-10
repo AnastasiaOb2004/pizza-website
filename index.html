@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel = "icon" href = "images/pizza-logo.png" type = "image/x-icon">
+</head>
+
+<body>
+    <header id="navbar">
+        <div id="navbar-components-container">
+            <div id="navbar-logo-container"><img id="navbar-logo-image" src="images/pizza-logo.png"></div>
+            <h4 id="navbar-el-1" class="navbar-components">HOME</h4>
+            <h4 id="navbar-el-2" class="navbar-components">MENU</h4>
+            <h4 id="navbar-el-3" class="navbar-components">ABOUT US</h4>
+            <h4 id="navbar-el-4" class="navbar-components">PARTNERS</h4>
+            <h4 id="navbar-el-5" class="navbar-components">CONTACT</h4>
+            <h4 id="navbar-el-6" class="navbar-components">+380 66 112 65 98</h4>
+        </div>
+        <div id="burger-menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div id="hidden-menu">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Menu</a>
+                </li>
+                <li>
+                    <a href="#">About us</a>
+                </li>
+                <li>
+                    <a href="#">Partners</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </header>
+
+    <section id="intro-page">
+        <h1 id="intro-name">Reserving & Delivery</h1>
+        <p id="intro-description" class="ps"> We offer the most delicious pizza, made with the freshest ingredients, following traditional Italian recipes. Fast delivery and convenient table reservations!</p>
+        <button id="intro-btn" class="red-btns animated-btn">Order now</button>
+    </section>
+
+    <section id="place-page">
+        <div id="place-context">
+            <div id="place-txt-content">
+                <h1 id="place-title">New York street pizzeria!</h1>
+                <div id="place-line"></div>
+                <p id="place-p" class="ps">We are pleased to present the pizzeria "New York," where you can enjoy the true atmosphere of New York, taste authentic pizza, and spend time in comfort.</p>
+            </div>
+            <div id="place-image-content">
+                <img id="place-image1" class="place-images" src="images/place-image1.jpg">
+                <img id="place-image2" class="place-images" src="images/place-image2.jpg">
+                <img id="place-image3" class="place-images" src="images/place-image3.jpg">
+                <img id="place-image4" class="place-images" src="images/place-image4.jpg">
+                <img id="place-image5" class="place-images" src="images/place-image5.jpg">
+                <img id="place-image6" class="place-images" src="images/place-image6.jpg">
+                <div id="place-button-container">
+                    <button id="place-arrow-left" onclick="previousSlide()"
+                        class="place-arrows animated-btn">&#10094;</button>
+                    <button id="place-arrow-right" onclick="nextSlide()"
+                        class="place-arrows animated-btn">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="text-page">
+        <div class="text-columns">
+            <h1 class="text-titles">On-Time Delivery</h1>
+            <p class="text-ps">We guarantee fast and timely delivery of your favorite pizza, regardless of the weather or distance.</p>
+        </div>
+        <div class="text-columns">
+            <h1 class="text-titles">Traditional Recipes</h1>
+            <p class="text-ps">Our pizzeria uses only the finest ingredients and time-tested recipes to ensure every slice brings you joy.</p>
+        </div>
+        <div class="text-columns">
+            <h1 class="text-titles">Freshness and Quality</h1>
+            <p class="text-ps">Every pizza is made right after you place your order, so you can enjoy a fresh and high-quality product.</p>
+        </div>
+    </section>
+
+    <section id="pictures-page">
+        <img id="loader" class="loaders" src="images/loader.gif">
+        <div id="largeImage"></div>
+        <div id="mini-images">
+            <img id="loader1" class="loaders" src="images/loader.gif">
+            <img id="loader2" class="loaders" src="images/loader.gif">
+            <img id="loader3" class="loaders" src="images/loader.gif">
+            <img id="loader4" class="loaders" src="images/loader.gif">
+        </div>
+    </section>
+
+    <section id="calculator-page">
+        <h1 id="calculator-title">Calculate Your Order</h1>
+        <h3 id="calculator-subtitle">More pizzas, more discount!</h3>
+        <div id="calculator">
+            <select id="calculator-input-type" name="pizza-type">
+                <option value="margarita">Margherita Pizza (100 UAH)</option>
+                <option value="peperoni">Pepperoni Pizza (120 UAH)</option>
+                <option value="salamiMushrooms">Salami & Mushroom Pizza (130 UAH)</option>
+                <option value="royal">Royal Pizza (150 UAH)</option>
+            </select>
+            <input id="calculator-input-num" type="number" placeholder="Number of Pizzas" min="1" />
+            <div>
+                <label for="delivery-option">Choose delivery method:</label>
+                <select id="delivery-option">
+                    <option value="pickup">Pick up in-store</option>
+                    <option value="delivery">Online delivery (+30 UAH)</option>
+                </select>
+            </div>
+        </div>
+        <button id="calculator-btn" class="red-btns animated-btn">Calculate</button>
+        <div id="calculator-result">
+            <h3 id="calculator-result-title">Your Discount: <span id="calculator-result-discount">0%</span></h3>
+            <h3 id="calculator-result-title">Total Price: <span id="calculator-result-price">0 UAH</span></h3>
+        </div>
+    </section>    
+
+    <section id="form-page">
+        <div id="form-content">
+            <form id="feedback-form">
+                <div id="form-input">
+                    <h2 id="form-title">Are you good at cooking and searching for a job? Join us!</h2>
+                    <section id = "form-input-container">
+                    <div id="form-input-1-container" class="form-input-containers">
+                        <h3 id="form-input-1-title" class="form-input-titles">Name</h3>
+                        <input id="form-input-1" class="form-inputs" placeholder="Enter name" type="text">
+                    </div>
+
+                    <div id="form-input-2-container" class="form-input-containers">
+                        <h3 id="form-input-2-title" class="form-input-titles">Last name</h3>
+                        <input id="form-input-2" class="form-inputs" placeholder="Enter last name" type="text">
+                    </div>
+
+                    <div id="form-input-3-container" class="form-input-containers">
+                        <h3 id="form-input-3-title" class="form-input-titles">Email</h3>
+                        <input id="form-input-3" class="form-inputs" placeholder="Enter email" type="text">
+                    </div>
+
+                    <div id="form-input-4-container" class="form-input-containers">
+                        <h3 id="form-input-4-title" class="form-input-titles">Phone</h3>
+                        <input id="form-input-4" class="form-inputs" placeholder="Enter phone" type="tel"
+                            inputmode="numeric">
+                    </div>
+
+                    <div id="form-input-5-container" class="form-input-containers">
+                        <h3 id="form-input-5-title" class="form-input-titles">Comment</h3>
+                        <input id="form-input-5" class="form-inputs" placeholder="Enter comment" type="text">
+                    </div>
+
+                    <div id="form-input-6-container" class="form-input-containers">
+                        <h3 id="form-input-6-title" class="form-input-titles">CV</h3>
+                        <input id="form-input-6" placeholder="Attach CV in PDF-format" type="file">
+                    </div>
+                </section>
+                </div>
+                <button id="form-btn" class="red-btns animated-btn">Send form</button>
+                <div id="error-messages"></div>
+            </form>
+            <div id="form-picture-container"></div>
+        </div>
+    </section>
+
+    <footer id="footer-page">
+        <div id="footer-col1" class="footer-columns">
+            <h2 class="footer-titles">Newsletter</h2>
+            <p id="footer-email">Enter your email address to receive the latest news and special offers.</p>
+            <input type="email" id="footer-field" placeholder="Your email">
+            <button id="footer-btn" class="animated-btn">Subscribe</button>
+        </div>
+
+        <div id="footer-col2" class="footer-columns">
+            <h2 class="footer-titles">Navigation</h2>
+            <p class="footer-underlined-p">Menu</p>
+            <p class="footer-underlined-p">Partners</p>
+            <p class="footer-underlined-p">About us</p>
+            <p class="footer-underlined-p">Contact</p>
+        </div>
+
+        <div id="footer-col3" class="footer-columns">
+            <h2 class="footer-titles">Contact information</h2>
+            <p>Address: Korolenko St. 15</p>
+            <p>Email: info@newyorkpizza.ua</p>
+            <p>Working hours: Mon-Fri 9:00 - 23:00</p>
+        </div>
+
+        <div id="footer-col4" class="footer-columns">
+            <h2 class="footer-titles">Follow us</h2>
+            <p class="footer-underlined-p">Facebook</p>
+            <p class="footer-underlined-p">Instagram</p>
+            <button id="footer-arrow-top-btn">↑</button>
+        </div>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
