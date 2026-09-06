@@ -339,3 +339,88 @@ document.getElementById("feedback-form").addEventListener("submit", function (ev
     }
   });
   
+  // ================= MOBILE FIXES =================
+
+/* The submit handler queries #form-picture, which does not exist in the HTML
+   (the element is #form-picture-container). This stub stops the crash. */
+if (!document.querySelector('#form-picture')) {
+    const dummy = document.createElement('div');
+    dummy.id = 'form-picture';
+    dummy.style.display = 'none';
+    document.body.appendChild(dummy);
+}
+
+/* Burger menu: close on link tap and on tap outside */
+const mMenu = document.querySelector('#hidden-menu');
+const mBurger = document.querySelector('#burger-menu');
+
+function isMenuOpen() {
+    return mMenu && parseInt(mMenu.style.right || '-300', 10) >= 0;
+}
+
+function closeMenu() {
+    if (isMenuOpen()) mBurger.click(); // keeps the original toggle flag in sync
+}
+
+if (mMenu && mBurger) {
+    mMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!isMenuOpen()) return;
+        if (mMenu.contains(event.target) || mBurger.contains(event.target)) return;
+        closeMenu();
+    });
+}
+
+/* Swipe through the place images */
+const placeSlider = document.querySelector('#place-image-content');
+let placeTouchX = 0;
+
+if (placeSlider) {
+    placeSlider.addEventListener('touchstart', (e) => {
+        placeTouchX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    placeSlider.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].clientX - placeTouchX;
+        if (Math.abs(diff) < 50) return;
+        if (diff < 0) nextSlide();
+        else previousSlide();
+    }, { passive: true });
+}
+
+/* On touch devices the anime.js mouseenter fires and never resets, so buttons
+   stay scaled, rotated and orange. This restores them after a tap. */
+document.querySelectorAll('.animated-btn').forEach((button) => {
+    button.addEventListener('touchend', () => {
+        setTimeout(() => {
+            anime({
+                targets: button,
+                scale: 1,
+                rotate: '0deg',
+                backgroundColor: 'rgb(181, 13, 13)',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+                duration: 300,
+                easing: 'easeInOutQuad'
+            });
+        }, 400);
+    });
+});
+
+/* The navbar/burger setup runs once at load, so rotating the phone or crossing
+   992px breaks it. Reload only when the layout actually switches. */
+let wasMobile = window.innerWidth <= 992;
+let resizeTimer;
+
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        const isMobile = window.innerWidth <= 992;
+        if (isMobile !== wasMobile) {
+            wasMobile = isMobile;
+            location.reload();
+        }
+    }, 250);
+});
